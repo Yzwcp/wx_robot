@@ -10,6 +10,7 @@ async function dispatchFriendFilterByMsgType(that, msg) {
     const contact = msg.talker() // 发消息人
     const isOfficial = contact.type() === that.Contact.Type.Official
     let content = ''
+
     switch (type) {
         case that.Message.Type.Text:
             content = msg.text()

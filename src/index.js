@@ -13,7 +13,7 @@ let platformHostUrl = 'http://47.108.190.69:9901/api/public/wx-client';
 let applictionToken = '';
 const initConfig = {
     PLATFORM_HOST_URL: process.env['PLATFORM_HOST_URL'] || platformHostUrl,
-    APPLICTION_TOKEN: process.env['APPLICTION_TOKEN'] || applictionToken,
+    APPLICTION_TOKEN: process.env['APPLICTION_TOKEN'] || '08da736a-dff0-4436-8f19-66dea8b41bf1',
 }
 
 if (!initConfig.APPLICTION_TOKEN || !initConfig.APPLICTION_TOKEN) {
@@ -23,6 +23,7 @@ if (!initConfig.APPLICTION_TOKEN || !initConfig.APPLICTION_TOKEN) {
 //初始化平台配置
 addPlatformDbConfig(initConfig)
 // get a Wechaty instance
+
 const bot = WechatyBuilder.build({
     name: 'wechat-bot',
     puppetOptions: {
@@ -32,6 +33,7 @@ const bot = WechatyBuilder.build({
 })
 
 // emit when the bot needs to show you a QR Code for scanning
+
 bot.on('scan', onScan)
     .on('login', onLogin)
     .on('message', onMessage)
@@ -40,3 +42,4 @@ bot.on('scan', onScan)
 bot.start()
     .then(() => log.info('启动贴心小助手成功', 'Starter Bot Started.'))
     .catch(e => log.error('启动贴心小助手报错', e))
+

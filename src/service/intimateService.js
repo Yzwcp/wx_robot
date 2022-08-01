@@ -51,6 +51,7 @@ async function getBotReply(keyword, uniqueid) {
  * @param {*} user 
  */
 async function updateWxUserInfo(that) {
+    return
     const { PLATFORM_HOST_URL, APPLICTION_TOKEN } = await getPlatformConfig()
     let userInfo = await getcurrentUser(that);
     let user = {
@@ -72,6 +73,8 @@ async function updateWxUserInfo(that) {
  * @param {*} that 机器人this
  */
 async function updateContacts(that) {
+    return
+
     const { PLATFORM_HOST_URL, APPLICTION_TOKEN } = await getPlatformConfig()
     let contacts = await getContacts(that);
     let res = await Post(PLATFORM_HOST_URL + `/contacts/${APPLICTION_TOKEN}`, contacts);

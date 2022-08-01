@@ -13,6 +13,7 @@ async function addBotConfig(info) {
 async function getBotConfig() {
   try {
     let search = await botConfigDb.find({})
+    console.log(search);
     return search[0]
   } catch (error) {
     console.log('查询数据错误', error)
